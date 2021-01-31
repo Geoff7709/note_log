@@ -12,10 +12,7 @@ const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
-  }).then(() => {
-    getAndRenderNotes(notes);
-  });
-  
+  })
 };
 
 // A function for saving a note to the db

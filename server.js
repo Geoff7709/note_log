@@ -24,10 +24,15 @@ app.get('/notes', (req, res) => {
 /**
  * API ROUTES
  */
-
+//renders notes in DOM 
 app.get('/api/notes', (req, res) => {
-    console.log(notes)
     res.json(notes);
+})
+
+// saves new notes
+app.post('/api/notes', (req, res) => {
+    const newNote = req.body
+    notes.push(newNote)
 })
 
 /**
