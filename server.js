@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const fs = require('fs');
+const uniqid = require('uniqid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const notes = require("./db/db.json")
@@ -32,7 +33,8 @@ app.get('/api/notes', (req, res) => {
 // saves new notes
 app.post('/api/notes', (req, res) => {
     const newNote = req.body
-    notes.push(newNote)
+    newNote.id = uniqid();
+    res.json(newNote)
 })
 
 /**
