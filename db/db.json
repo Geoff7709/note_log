@@ -1,7 +1,1 @@
-[
-    {
-    "title":"Test Title",
-    "text":"Test text",
-    "id": 1
-
-    }]
+[{"title":"Test Title","text":"Test text","id":1},{"title":"New Note","text":"New note text","id":"3qecl9vdqkkklvust2"},{"title":"New Note 2","text":"Text and text and text","id":"3qecl9vdjokkn0l6sk"},{"title":"New note 3","text":"Some more stuff","id":"3qecl9vdjokkn0mlp0"}]

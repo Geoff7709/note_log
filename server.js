@@ -34,7 +34,18 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     const newNote = req.body
     newNote.id = uniqid();
-    res.json(newNote)
+    notes.push(newNote);
+    res.json(notes);
+    fs.writeFile('./db/db.json', JSON.stringify(notes), function (err) {
+        if (err) throw err;
+        console.log('Saved!');
+      });
+})
+
+// deletes notes from the list
+
+app.delete('api/notes/:id', (req, res) => {
+    console.log(req.params.id)
 })
 
 /**
