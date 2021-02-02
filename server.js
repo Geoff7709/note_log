@@ -47,19 +47,24 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
     const deleteId = req.params.id;
-    // const checkId = (noteId) => {
-    //     return noteId !== deleteId
-    // }
-    // const newNotes = () => {
-    //     console.log(notes.filter(checkId))
-    // }
-    // newNotes()
-    // const noteConcat = [].concat(JSON.parse(notes))
-    // console.log(noteConcat)
-    // const newNotes = noteConcat.filter((note) => {
-    //     note !== deleteId;
-    // });
-    // console.log(newNotes)
+    const readNotes = JSON.parse(fs.readFileSync("./db/db.json"))
+    const newNotes = () => {
+        readNotes.map(note => {
+            if (note.id === deleteId) {
+                const index = readNotes.indexOf(note)
+                readNotes.splice(index, 1);
+            }
+        })
+        return readNotes;
+    }
+    const writeNotes = () => {
+        newNotes();
+        fs.writeFile('./db/db.json', JSON.stringify(readNotes), function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+        })
+    }
+    writeNotes()
     
 })
 
