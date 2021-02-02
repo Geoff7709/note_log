@@ -4,7 +4,8 @@ const fs = require('fs');
 const uniqid = require('uniqid');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const notes = require("./db/db.json")
+const notes = require("./db/db.json");
+const { json } = require("express");
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.urlencoded({ extended:true }));
@@ -44,8 +45,22 @@ app.post('/api/notes', (req, res) => {
 
 // deletes notes from the list
 
-app.delete('api/notes/:id', (req, res) => {
-    console.log(req.params.id)
+app.delete('/api/notes/:id', (req, res) => {
+    const deleteId = req.params.id;
+    // const checkId = (noteId) => {
+    //     return noteId !== deleteId
+    // }
+    // const newNotes = () => {
+    //     console.log(notes.filter(checkId))
+    // }
+    // newNotes()
+    // const noteConcat = [].concat(JSON.parse(notes))
+    // console.log(noteConcat)
+    // const newNotes = noteConcat.filter((note) => {
+    //     note !== deleteId;
+    // });
+    // console.log(newNotes)
+    
 })
 
 /**
