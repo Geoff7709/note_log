@@ -23,7 +23,7 @@
   ## Usage
   Follow the prompts in the application as shown in the usage video.
 
-  ![Usage Video](images\usage_video.gif)
+  ![Usage Video](images/usage_video.gif)
   ## Tests
   There are no tests for this application.
   ## Contributing
