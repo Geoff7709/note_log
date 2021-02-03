@@ -4,7 +4,7 @@ const fs = require('fs');
 const uniqid = require('uniqid');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const notes = require("./db/db.json");
+// const notes = require("./db/db.json");
 const { json } = require("express");
 
 app.use(express.static(__dirname + '/public'))
@@ -28,16 +28,18 @@ app.get('/notes', (req, res) => {
  */
 //renders notes in DOM 
 app.get('/api/notes', (req, res) => {
-    res.json(notes);
+    const readNotes = JSON.parse(fs.readFileSync("./db/db.json"))
+    res.json(readNotes);
 })
 
 // saves new notes
 app.post('/api/notes', (req, res) => {
     const newNote = req.body
     newNote.id = uniqid();
-    notes.push(newNote);
-    res.json(notes);
-    fs.writeFile('./db/db.json', JSON.stringify(notes), function (err) {
+    const readNotes = JSON.parse(fs.readFileSync("./db/db.json"))
+    readNotes.push(newNote);
+    res.json(readNotes);
+    fs.writeFile('./db/db.json', JSON.stringify(readNotes), function (err) {
         if (err) throw err;
         console.log('Saved!');
       });
@@ -65,7 +67,7 @@ app.delete('/api/notes/:id', (req, res) => {
         })
     }
     writeNotes()
-    
+    res.json(deleteId)    
 })
 
 /**
