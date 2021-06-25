@@ -14,7 +14,7 @@
 
   [Questions](#questions)
 
-  [Lisence](#lisence)
+  [License](#license)
 
   ## Description
   This is a full stack application designed to save notes to a database that can be updated by the user through the app. It will  allow the user to both record and delete notes, and display a menu of notes. These notes will be displayed when the list item is clicked.
@@ -35,7 +35,7 @@
   For further questions please feel free to email the developers:
 
   geoffzimmerman23@gmail.com
-  ## Lisence
+  ## License
   Use of this software is regulated under the following lisence:
 
   [MIT](https://opensource.org/licenses/MIT)
